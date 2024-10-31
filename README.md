@@ -248,11 +248,12 @@ console.log(countries);
 
 Bra när man inte vet hur mycket man behöver repetera det i förväg.
 
+Syntax
 ```js
-let siffra = 0;
+let siffra = 0; // initialValue
 
-while (siffra < 100){
-    siffra++;
+while (siffra < 100){ // condition
+    siffra++; // change
 
     console.log(siffra);
 }
@@ -285,14 +286,200 @@ Kör en gång endå innan en loop kan köras med hjälp av vilka conditions allt
 let count = 0;
 
 do {
-    count++;
+    count++; // körs en gång utan condition
     console.log(count);
-}   while (count === 0)
+}   while (count === 0) // i detta fall blir det falskt & skippar condition
 ```
 
 
 
 ### For-loop with index
+
+Klassisk loop som används när du vet i förväg hur många gånger den ska köras. Speciellt med lists eller arrays.
+
+Syntax
+```js
+for (initialValue; condition; change) {
+    // Code to be executed in each iteration
+}
+```
+
+Exempel med Array
+```js
+const numbers = [5, 2, 10, 15, 27, 99]
+
+for(let i = 0; 1 < numbers.length; i++) { // i = 0 variabel för att börja på index position 0
+
+    console.log(numbers[i]);
+
+}
+```
+
+The `intitalValue` är värdet på index vi startar loopen på. I detta fallet startar vi på index position 0. Första elementet/item i array.
+
+The `condition` är i detta fallet `.length` metoden av array. Det kommer alltid vara lika med hur många items/elements är i arrayen.
+
+The `change` är bara hur vi uppdaterar index värdet efter varje iteration.
+
+Annat exempel:
+```js
+const numbers = [5, 2, 10, 15, 27, 99]
+
+for(let i = numbers.length - 1; i>=0; i--) { // numbers.length - 1 eftersom numbers.length har 6. det finns bara 0-5 index positioner.
+
+    console.log(numbers[i]);
+
+}
+```
+
+### For..of-loop
+
+Används när vi är inte intresserade av index utan bara själva item i array
+
+Syntax
+```js
+for (variable of array) { // variable can be named whatever
+    // Code to be executed in each interation
+}
+```
+
+Example with car names:
+```js
+const cars = ["Volvo", "Saab", "Volkswagen", "BMW"];
+
+for (const car of cars) {
+    console.log(car);
+}
+// => Volvo, Saab, Volkswagen, BMW
+```
+
+`variable car` är en lokal variabel som skapas i varje iteration.
+
+### For..in-loop
+
+Loop för objekt, kommer senare.
+
+## Functions
+
+Ett stycke kod som vi har samlat ihop i en enhet i syftet att återanvändas.
+
+### Create functions
+
+Det finns tre "sätt" att skapa funktioner i JavaScript. Två av dem är liknande, en av dem är annorlunda.
+
+### 1. with the function keyword HOISTED TO TOP
+Syntax
+```js
+function functionName (/* zero or more parameters */) {
+    // The code to be executed.
+
+    // zero or ONE return value
+    return something;
+}
+```
+
+Exempel på greeting function
+```js
+function greeting () {
+    console.log("Hello there!");
+}
+```
+Hur du anropar funktionen i consolen:
+```js
+greeting()
+
+// => "Hello there!"
+```
+
+Sammanfattas:
+
+- `function`: keyword i JS, används i JS för att berätta att en funktion ska bli deklarerad.
+
+- `functionName`: ett namn av funktionen. Använd ett namn som beskriver lätt funktionen.
+
+- `parameters`: kallas också "arguments" ibland, det är datan som funktionen behöver för att fungera ordentligt. Det kan vara inga eller fler av dem.
+
+- `return value`: värdet som ska bli returned från funktionen. Du behöver inte ett return value för att bara köra kod. Men du kan bara ha `1` return value om det behövs.
+
+### 2. with a variable and the function keyword.
+Syntax
+```js
+const functionName = function (/* zero or more parameters */) {
+    // code to be executed
+
+    // zero or ONE return value
+    return something;
+}
+
+```
+
+
+```js
+const greeting = function() {
+    console.log("Hello There!");
+}
+```
+
+### 3. with an arrow function
+Syntax
+```js
+const functionName = (/* zero or more parameters */) => {
+    // code to be executed.
+
+    // zero or ONE return value
+    return something;
+}
+```
+Exempel
+```js
+const greeting = () => {
+    console.log("Hello there!");
+}
+```
+
+### Functions with parameters
+
+```js
+function greetWithName (name) 
+    // with template literal string $ we can inject variables in to the string.
+    console.log(`Hello ${name}!`);
+```
+
+Exempel med kalkylator
+```js
+function addTwoNumbers(num1, num2) {
+    const result = num1 + num2;
+    console.log(`The result is ${result}`);
+}
+```
+
+### Functions with return value
+
+```js
+function giveMeTheNumber7 (){
+    return 7;
+}
+
+const number = giveMeTheNumber7();
+
+// <= number
+// => 7
+```
+Här returerar funktionen en specifik nummer. I detta fall 7. Det betyder att vi kan skapa en variabel som är lika med funktionen. Som kommer tilldelas return value av funktionen.
+
+### Function with both parameters & return value
+
+Här har vi en funktion med både parametrar och return value.
+
+```js
+function divide(num1, num2) {
+    const result = num1 / num2;
+    return result;
+}
+
+const result = divide(10, 2);
+```
+
 
 
 
